@@ -50,11 +50,10 @@ function TaskCard({ task, onToggleComplete, onEdit, onDelete }) {
             <FiEdit2 size={18} />
           </button>
           <button
-            className={`${styles.actionButton} ${styles.delete}`}
-            onClick={() => onDelete(task.id)}
-            aria-label="Delete task"
-            title="Delete"
-          >
+  className={`${styles.actionButton} ${styles.delete}`}
+  onClick={() => onDelete(task)}  // ✅ CORRECT - pass full task object
+  aria-label="Delete task"
+>
             <FiTrash2 size={18} />
           </button>
         </div>
