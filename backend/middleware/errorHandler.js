@@ -1,6 +1,9 @@
 export const errorHandler = (err, req, res, next) => {
-  console.error('❌ Error:', err.message);
-  console.error('Stack:', err.stack);
+// Only log if not a 404 (not found is expected)
+  if (err.status !== 404) {
+    console.error('❌ Error:', err.message);
+    console.error('Stack:', err.stack);
+  }
 
   if (err.name === 'ZodError') {
     return res.status(400).json({
